@@ -12,7 +12,7 @@ import {
 } from './shared';
 import Axios from './axios';
 
-const baseEndpoint = 'http://integration-equipment-defin-nlb-e31e032739595adb.elb.us-east-1.amazonaws.com/inverters/index/suggestions';
+const baseEndpoint = 'http://integration-equipment-defin-nlb-e31e032739595adb.elb.us-east-1.amazonaws.com/inverters/index';
 
 class InverterAutoComplete extends React.Component {
   render() {
@@ -38,13 +38,13 @@ class InverterAutoComplete extends React.Component {
             clearSelection,
           }) => {
             return (
-              <div {...css({width: 250, margin: 'auto', position: 'relative'})}>
-                <Label {...getLabelProps()}>Select a Inverter</Label>
+              <div {...css({width: 400, margin: 'auto', position: 'relative'})}>
+                <Label {...getLabelProps()}>INVERTER</Label>
                 <div {...css({position: 'relative'})}>
                   <Input
                     {...getInputProps({
                       isOpen,
-                      placeholder: 'Search inverter',
+                      placeholder: '- Type to replace Inverter -',
                     })}
                   />
                   {selectedItem ? (
@@ -73,7 +73,15 @@ class InverterAutoComplete extends React.Component {
                     }
 
                     return (
-                      <Axios url={baseEndpoint} params={{ query: inputValue }}>
+                      <Axios
+                        url={baseEndpoint}
+                        params={{
+                          query: inputValue,
+                          temperatureAdjustedVmp: '30.0',
+                          temperatureAdjustedVoc: '38',
+                          voltage: '208',
+                          mountingMethod: 'WALL_MOUNT'
+                        }}>
                         {({loading, error, data}) => {
                           if (loading) {
                             return <Item disabled>Loading...</Item>

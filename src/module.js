@@ -12,7 +12,7 @@ import {
 } from './shared';
 import Axios from './axios';
 
-const baseEndpoint = 'http://integration-equipment-defin-nlb-e31e032739595adb.elb.us-east-1.amazonaws.com/modules/index/suggestions';
+const baseEndpoint = 'http://integration-equipment-defin-nlb-e31e032739595adb.elb.us-east-1.amazonaws.com/modules/index';
 
 class ModuleAutoComplete extends React.Component {
   render() {
@@ -38,13 +38,13 @@ class ModuleAutoComplete extends React.Component {
             clearSelection,
           }) => {
             return (
-              <div {...css({width: 250, margin: 'auto', position: 'relative'})}>
-                <Label {...getLabelProps()}>Select a Module</Label>
+              <div {...css({width: 400, margin: 'auto', position: 'relative'})}>
+                <Label {...getLabelProps()}>MODULE</Label>
                 <div {...css({position: 'relative'})}>
                   <Input
                     {...getInputProps({
                       isOpen,
-                      placeholder: 'Search module',
+                      placeholder: '- Type to replace Module -',
                     })}
                   />
                   {selectedItem ? (
