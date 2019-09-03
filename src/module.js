@@ -1,10 +1,12 @@
 import React from 'react';
 import Downshift from 'downshift';
+import ReactHtmlParser from 'react-html-parser';
 import {
   Label,
   Menu,
   ControllerButton,
   Input,
+  Tag,
   Item,
   ArrowIcon,
   XIcon,
@@ -86,17 +88,46 @@ class ModuleAutoComplete extends React.Component {
                             return <Item disabled>No module found</Item>
                           }
 
-                          return data ? data.map(({id, title: item}, index) => (
+                          return data ? data.map(({id, title, dateCreated, tags}, index) => (
                             <Item
                               key={id}
                               {...getItemProps({
-                                item,
+                                item: title,
                                 index,
                                 isActive: highlightedIndex === index,
-                                isSelected: selectedItem === item,
+                                isSelected: selectedItem === title,
                               })}
                             >
-                              {item}
+                              {ReactHtmlParser(title)}
+                              <div style={{ marginTop: '5px'}}>
+                                <Tag>
+                                  {tags['Cell Type']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Efficiency']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Efficiency Rank']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Efficiency Rating']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Frame and backsheet color']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Module Type']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Number of Cells']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Power Rating']}
+                                </Tag>
+                              </div>
+                              <div style={{ marginTop: '5px'}}>
+                                {dateCreated}
+                              </div>
                             </Item>
                           )) : null
                         }}

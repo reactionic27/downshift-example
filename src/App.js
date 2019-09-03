@@ -6,8 +6,8 @@ class DownshiftExample extends React.Component {
   render() {
     return (
       <div>
-        <ModuleAutoComplete {...this.props} />
-        <InverterAutoComplete {...this.props} />
+        <ModuleAutoComplete />
+        <InverterAutoComplete />
       </div>
     )
   }

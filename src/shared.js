@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 
 const css = (...args) => ({className: emoCSS(...args)})
 
-const Item = styled('li')(
+const Item = styled('div')(
   {
     position: 'relative',
     cursor: 'pointer',
@@ -41,6 +41,18 @@ const Item = styled('li')(
   },
 )
 const onAttention = '&:hover, &:focus'
+
+const Tag = styled('div')(
+  {
+    padding: '5px 10px 10px 10px',
+    borderRadius: '10px',
+    border: '1px solid gray',
+    display: 'inline-block',
+    marginRight: '2px',
+    marginTop: '2px'
+  }
+)
+
 const Input = styled('input')(
   {
     width: 'calc(100% - 2em)', // full width - icon width/2 - border
@@ -165,6 +177,7 @@ export {
   Menu,
   ControllerButton,
   Input,
+  Tag,
   Item,
   ArrowIcon,
   XIcon,
