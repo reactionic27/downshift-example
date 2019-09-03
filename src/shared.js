@@ -101,6 +101,7 @@ const BaseMenu = styled('ul')(
     borderBottomWidth: 1,
     borderLeftWidth: 1,
     borderStyle: 'solid',
+    zIndex: 100,
   },
   ({isOpen}) => ({
     border: isOpen ? null : 'none',
