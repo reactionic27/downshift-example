@@ -98,7 +98,7 @@ class ModuleAutoComplete extends React.Component {
                                 isSelected: selectedItem === title,
                               })}
                             >
-                              {ReactHtmlParser(title)}
+                              <div style={{ fontWeight: 'bold' }}>{ReactHtmlParser(title)}</div>
                               <div style={{ marginTop: '5px'}}>
                                 <Tag>
                                   {tags['Cell Type']}

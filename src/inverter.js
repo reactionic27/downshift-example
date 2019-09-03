@@ -1,10 +1,12 @@
 import React from 'react';
 import Downshift from 'downshift';
+import ReactHtmlParser from 'react-html-parser';
 import {
   Label,
   Menu,
   ControllerButton,
   Input,
+  Tag,
   Item,
   ArrowIcon,
   XIcon,
@@ -86,7 +88,7 @@ class InverterAutoComplete extends React.Component {
                           if (loading) {
                             return <Item disabled>Loading...</Item>
                           }
-
+                          console.log('invert data', data);
                           if (error) {
                             return <Item disabled>Error! ${error}</Item>
                           }
@@ -94,17 +96,46 @@ class InverterAutoComplete extends React.Component {
                             return <Item disabled>No module found</Item>
                           }
 
-                          return data ? data.map(({id, title: item}, index) => (
+                          return data ? data.map(({id, title, dateCreated, tags}, index) => (
                             <Item
                               key={id}
                               {...getItemProps({
-                                item,
+                                item: title,
                                 index,
                                 isActive: highlightedIndex === index,
-                                isSelected: selectedItem === item,
+                                isSelected: selectedItem === title,
                               })}
                             >
-                              {item}
+                              <div style={{ fontWeight: 'bold' }}>{ReactHtmlParser(title)}</div>
+                              <div style={{ marginTop: '5px'}}>
+                                <Tag>
+                                  {tags['AC power output']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Certification']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Inverter Type']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Maximum Operating Voltage']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Minimum Operating Voltage']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Mounting Method']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Output Voltage']}
+                                </Tag>
+                                <Tag>
+                                  {tags['Storage']}
+                                </Tag>
+                              </div>
+                              <div style={{ marginTop: '5px'}}>
+                                {dateCreated}
+                              </div>
                             </Item>
                           )) : null
                         }}
