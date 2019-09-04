@@ -88,7 +88,6 @@ class InverterAutoComplete extends React.Component {
                           if (loading) {
                             return <Item disabled>Loading...</Item>
                           }
-                          console.log('invert data', data);
                           if (error) {
                             return <Item disabled>Error! ${error}</Item>
                           }
