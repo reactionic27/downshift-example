@@ -105,28 +105,28 @@ class ModuleAutoComplete extends React.Component {
                               <div>{ReactHtmlParser(getFormatedText(title))}</div>
                               <div style={{ marginTop: '5px'}}>
                                 <Tag>
-                                  {tags['Cell Type']}
+                                  {ReactHtmlParser(getFormatedText(tags['Cell Type']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Efficiency']}
+                                  {ReactHtmlParser(getFormatedText(tags['Efficiency']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Efficiency Rank']}
+                                  {ReactHtmlParser(getFormatedText(tags['Efficiency Rank']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Efficiency Rating']}
+                                  {ReactHtmlParser(getFormatedText(tags['Efficiency Rating']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Frame and backsheet color']}
+                                  {ReactHtmlParser(getFormatedText(tags['Frame and backsheet color']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Module Type']}
+                                  {ReactHtmlParser(getFormatedText(tags['Module Type']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Number of Cells']}
+                                  {ReactHtmlParser(getFormatedText(tags['Number of Cells']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Power Rating']}
+                                  {ReactHtmlParser(getFormatedText(tags['Power Rating']))}
                                 </Tag>
                               </div>
                               <div style={{ marginTop: '5px'}}>

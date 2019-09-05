@@ -109,28 +109,28 @@ class InverterAutoComplete extends React.Component {
                               <div>{ReactHtmlParser(getFormatedText(title))}</div>
                               <div style={{ marginTop: '5px'}}>
                                 <Tag>
-                                  {tags['AC power output']}
+                                  {ReactHtmlParser(getFormatedText(tags['AC power output']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Certification']}
+                                  {ReactHtmlParser(getFormatedText(tags['Certification']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Inverter Type']}
+                                  {ReactHtmlParser(getFormatedText(tags['Inverter Type']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Maximum Operating Voltage']}
+                                  {ReactHtmlParser(getFormatedText(tags['Maximum Operating Voltage']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Minimum Operating Voltage']}
+                                  {ReactHtmlParser(getFormatedText(tags['Minimum Operating Voltage']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Mounting Method']}
+                                  {ReactHtmlParser(getFormatedText(tags['Mounting Method']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Output Voltage']}
+                                  {ReactHtmlParser(getFormatedText(tags['Output Voltage']))}
                                 </Tag>
                                 <Tag>
-                                  {tags['Storage']}
+                                  {ReactHtmlParser(getFormatedText(tags['Storage']))}
                                 </Tag>
                               </div>
                               <div style={{ marginTop: '5px'}}>
