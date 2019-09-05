@@ -11,6 +11,7 @@ import {
   ArrowIcon,
   XIcon,
   css,
+  getFormatedText,
 } from './shared';
 import Axios from './axios';
 
@@ -105,7 +106,7 @@ class InverterAutoComplete extends React.Component {
                                 isSelected: selectedItem === title,
                               })}
                             >
-                              <div style={{ fontWeight: 'bold' }}>{ReactHtmlParser(title)}</div>
+                              <div>{ReactHtmlParser(getFormatedText(title))}</div>
                               <div style={{ marginTop: '5px'}}>
                                 <Tag>
                                   {tags['AC power output']}

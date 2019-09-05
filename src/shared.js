@@ -173,6 +173,10 @@ function XIcon() {
 
 const itemToString = i => (i ? i.name : '')
 
+const getFormatedText = (title) => {
+  return title.replace('<em>', '<em style="font-weight: bold; font-style: normal; color: blue">')
+}
+
 export {
   Menu,
   ControllerButton,
@@ -184,4 +188,5 @@ export {
   Label,
   css,
   itemToString,
+  getFormatedText,
 }

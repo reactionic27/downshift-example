@@ -11,12 +11,16 @@ import {
   ArrowIcon,
   XIcon,
   css,
+  getFormatedText,
 } from './shared';
 import Axios from './axios';
 
 const baseEndpoint = 'http://integration-equipment-defin-nlb-e31e032739595adb.elb.us-east-1.amazonaws.com/modules/index';
 
 class ModuleAutoComplete extends React.Component {
+  // getFormatedText = (title) => {
+  //   return title.replace('<em>', '<em style="font-weight: bold; font-style: normal">')
+  // }
   render() {
     return (
       <div
@@ -98,7 +102,7 @@ class ModuleAutoComplete extends React.Component {
                                 isSelected: selectedItem === title,
                               })}
                             >
-                              <div style={{ fontWeight: 'bold' }}>{ReactHtmlParser(title)}</div>
+                              <div>{ReactHtmlParser(getFormatedText(title))}</div>
                               <div style={{ marginTop: '5px'}}>
                                 <Tag>
                                   {tags['Cell Type']}
