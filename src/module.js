@@ -12,15 +12,13 @@ import {
   XIcon,
   css,
   getFormatedText,
+  getTitle,
 } from './shared';
 import Axios from './axios';
 
 const baseEndpoint = 'http://integration-equipment-defin-nlb-e31e032739595adb.elb.us-east-1.amazonaws.com/modules/index';
 
 class ModuleAutoComplete extends React.Component {
-  // getFormatedText = (title) => {
-  //   return title.replace('<em>', '<em style="font-weight: bold; font-style: normal">')
-  // }
   render() {
     return (
       <div
@@ -42,7 +40,9 @@ class ModuleAutoComplete extends React.Component {
             highlightedIndex,
             isOpen,
             clearSelection,
+            // itemToString,
           }) => {
+            //console.log('item to strong', itemToString);
             return (
               <div {...css({width: 400, margin: 'auto', position: 'relative'})}>
                 <Label {...getLabelProps()}>MODULE</Label>
@@ -96,7 +96,7 @@ class ModuleAutoComplete extends React.Component {
                             <Item
                               key={id}
                               {...getItemProps({
-                                item: title,
+                                item: getTitle(title),
                                 index,
                                 isActive: highlightedIndex === index,
                                 isSelected: selectedItem === title,

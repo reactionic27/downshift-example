@@ -12,6 +12,7 @@ import {
   XIcon,
   css,
   getFormatedText,
+  getTitle,
 } from './shared';
 import Axios from './axios';
 
@@ -100,7 +101,7 @@ class InverterAutoComplete extends React.Component {
                             <Item
                               key={id}
                               {...getItemProps({
-                                item: title,
+                                item: getTitle(title),
                                 index,
                                 isActive: highlightedIndex === index,
                                 isSelected: selectedItem === title,
