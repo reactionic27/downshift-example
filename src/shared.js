@@ -178,7 +178,7 @@ const getFormatedText = (title) => {
 }
 
 const getTitle = (title) => {
-  return title.replace('<em>', '').replace('</em>', '');
+  return title.replace(/<(.*?)em>/g, '');
 }
 
 export {
