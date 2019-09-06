@@ -174,7 +174,7 @@ function XIcon() {
 const itemToString = i => (i ? i.name : '')
 
 const getFormatedText = (title) => {
-  return title.replace('<em>', '<em style="font-weight: bold; font-style: normal; color: blue">');
+  return title.replace(/<em>/g, '<em style="font-weight: bold; font-style: normal; color: blue">');
 }
 
 const getTitle = (title) => {
