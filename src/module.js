@@ -92,7 +92,7 @@ class ModuleAutoComplete extends React.Component {
                             return <Item disabled>No module found</Item>
                           }
 
-                          return data ? data.map(({id, title, dateCreated, tags}, index) => (
+                          return data ? data.map(({id, title, dateCreated, attributes}, index) => (
                             <Item
                               key={id}
                               {...getItemProps({
@@ -104,30 +104,41 @@ class ModuleAutoComplete extends React.Component {
                             >
                               <div>{ReactHtmlParser(getFormatedText(title))}</div>
                               <div style={{ marginTop: '5px'}}>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Cell Type']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Efficiency']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Efficiency Rank']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Efficiency Rating']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Frame and backsheet color']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Module Type']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Number of Cells']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Power Rating']))}
-                                </Tag>
+                                {attributes['Cell Type'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Cell Type']))}
+                                  </Tag>
+                                }
+                                {attributes['Efficiency'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Efficiency']))}
+                                  </Tag>
+                                }
+                                {attributes['Efficiency Rating'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Efficiency Rating']))}
+                                  </Tag>
+                                }
+                                {attributes['Frame and backsheet color'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Frame and backsheet color']))}
+                                  </Tag>
+                                }
+                                {attributes['Module Type'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Module Type']))}
+                                  </Tag>
+                                }
+                                {attributes['Number of Cells'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Number of Cells']))}
+                                  </Tag>
+                                }
+                                {attributes['Power Rating'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Power Rating']))}
+                                  </Tag>
+                                }
                               </div>
                               <div style={{ marginTop: '5px'}}>
                                 {dateCreated}

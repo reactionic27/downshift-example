@@ -84,7 +84,7 @@ class InverterAutoComplete extends React.Component {
                           temperatureAdjustedVmp: '30.0',
                           temperatureAdjustedVoc: '38',
                           voltage: '208',
-                          mountingMethod: 'WALL_MOUNT'
+                          moduleMountingMethod: 'WALL_MOUNT'
                         }}>
                         {({loading, error, data}) => {
                           if (loading) {
@@ -97,7 +97,7 @@ class InverterAutoComplete extends React.Component {
                             return <Item disabled>No module found</Item>
                           }
 
-                          return data ? data.map(({id, title, dateCreated, tags}, index) => (
+                          return data ? data.map(({id, title, dateCreated, attributes}, index) => (
                             <Item
                               key={id}
                               {...getItemProps({
@@ -109,30 +109,26 @@ class InverterAutoComplete extends React.Component {
                             >
                               <div>{ReactHtmlParser(getFormatedText(title))}</div>
                               <div style={{ marginTop: '5px'}}>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['AC power output']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Certification']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Inverter Type']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Maximum Operating Voltage']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Minimum Operating Voltage']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Mounting Method']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Output Voltage']))}
-                                </Tag>
-                                <Tag>
-                                  {ReactHtmlParser(getFormatedText(tags['Storage']))}
-                                </Tag>
+                                {attributes['AC power output'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['AC power output']))}
+                                  </Tag>
+                                }
+                                {attributes['Certification'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Certification']))}
+                                  </Tag>
+                                }
+                                {attributes['Inverter Type'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Inverter Type']))}
+                                  </Tag>
+                                }
+                                {attributes['Storage'] !== "" &&
+                                  <Tag>
+                                    {ReactHtmlParser(getFormatedText(attributes['Storage']))}
+                                  </Tag>
+                                }
                               </div>
                               <div style={{ marginTop: '5px'}}>
                                 {dateCreated}
